@@ -7,13 +7,13 @@ export default hopeTheme({
   hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
 
   author: {
-    name: "Mr.Hope",
+    name: "yxsj245",
     url: "https://mister-hope.com",
   },
 
   logo: "/logo.png",
 
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "GSManagerXZ/Docs",
 
   docsDir: "src",
 
@@ -119,21 +119,16 @@ export default hopeTheme({
 
   // 在这里配置主题提供的插件
   plugins: {
-    // 注意: 仅用于测试! 你必须自行生成并在生产环境中使用自己的评论服务
-    comment: {
-      provider: "Giscus",
-      repo: "vuepress-theme-hope/giscus-discussions",
-      repoId: "R_kgDOG_Pt2A",
-      category: "Announcements",
-      categoryId: "DIC_kwDOG_Pt2M4COD69",
-    },
+    // 关闭评论功能
+    comment: false,
 
     components: {
       components: ["Badge", "VPCard"],
     },
 
     icon: {
-      prefix: "fa6-solid:",
+      // 支持完整的 FontAwesome 图标库
+      assets: "fontawesome-with-brands",
     },
 
     // 如果你需要 PWA。安装 @vuepress/plugin-pwa 并取消下方注释
