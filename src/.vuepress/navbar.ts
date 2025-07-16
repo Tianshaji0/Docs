@@ -10,7 +10,12 @@ export default navbar([
   },
   {
     text: "功能详解",
-    icon: "fa-download",
+    icon: "fa-book",
     link: "/功能详解/",
+  },
+  {
+    text: "使用技巧",
+    icon: "fa-lightbulb",
+    link: "/使用技巧/",
   },
 ]);
