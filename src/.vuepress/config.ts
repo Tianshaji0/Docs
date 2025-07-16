@@ -6,8 +6,13 @@ export default defineUserConfig({
   base: "/",
 
   lang: "zh-CN",
-  title: "文档演示",
+  title: "GSManager",
   description: "vuepress-theme-hope 的文档演示",
+
+  // 设置网站图标
+  head: [
+    ["link", { rel: "icon", href: "/logo.png" }],
+  ],
 
   theme,
 
