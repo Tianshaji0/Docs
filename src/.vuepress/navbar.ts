@@ -18,4 +18,10 @@ export default navbar([
     icon: "fa-lightbulb",
     link: "/使用技巧/",
   },
+  {
+    text: "游戏百科",
+    icon: "fa-gamepad",
+    prefix: "/游戏百科/",
+    children: ["Steam/"]
+  },
 ]);
