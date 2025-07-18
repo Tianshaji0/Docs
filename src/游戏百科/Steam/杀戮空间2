@@ -1,0 +1,50 @@
+---
+title: 杀戮空间2
+description: 神奇的老头服务器
+---
+
+
+
+# 杀戮空间2 Windows服务器搭建指南
+
+## 服务器启动命令
+
+使用以下命令启动杀戮空间2服务器：
+
+```cmd
+start .\Binaries\win64\kfserver kf-bioticslab?GamePassword=?adminpassword=123?port=12345?PeerPort=12356
+```
+
+::: warning 重要提示
+请确保：
+
+- 替换所有密码和端口号
+- 保留所有特殊符号（?、=等）
+- 防火墙开放相应端口
+:::
+
+<div class="video-container">
+  <iframe src="//player.bilibili.com/player.html?bvid=BV1QqE2zEEo3&page=1&high_quality=1&danmaku=0" 
+          scrolling="no" 
+          border="0" 
+          frameborder="no" 
+          framespacing="0" 
+          allowfullscreen="true">
+  </iframe>
+</div>
+
+::: tip 服务器无法启动？
+检查路径是否正确
+
+确认端口未被占用
+
+验证游戏文件完整性
+:::
+
+::: tip 玩家无法连接？
+检查防火墙设置
+
+确认端口转发配置正确
+
+确保GamePassword设置正确
+:::
