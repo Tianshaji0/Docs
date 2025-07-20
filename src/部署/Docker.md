@@ -10,7 +10,9 @@ GSManager3中采用的仍然是游戏容器，拥有绝大部分的游戏运行�
 
 ## 拉取镜像
 ### 在线拉取
-
+```bash
+docker pull xiaozhu674/gameservermanager:latest
+```
 ### 离线下载
 
 ## 创建docker-compose.yml
@@ -23,8 +25,8 @@ volumes:
 services:
   management_panel:
     build: .
-    container_name: gsm3_management_panel
-    image: langlangy.server.xiaozhuhouses.asia:20000/gameservermanager:3.0.3
+    container_name: GSManager
+    image: xiaozhu674/gameservermanager:latest
     user: root                       
     ports:
       # GSM3管理面板端口
@@ -61,3 +63,11 @@ services:
 ## 创建容器
 在`docker-compose.yml`文件目录下执行`docker compose up -d`将会自动根据配置文件创建容器，随后可以通过
 IP加默认映射端口进行访问即可
+
+## 更新
+1. 修改`image: xiaozhu674/gameservermanager:latest`中末尾的`latest`为最新版本号重新在yml目录下执行`docker compose up -d`即可
+2. 使用1panel面板 删除之前镜像重新拉取最新镜像然后选择**重置**容器即可
+
+::: warning 注意
+更新容器会删除之前的容器中所有数据，请确保在更新前已将游戏存档目录等需要持久保留的数据映射到宿主机中！
+:::
