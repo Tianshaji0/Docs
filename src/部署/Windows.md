@@ -10,25 +10,15 @@ order: 2
 
 ## 🚀 一、下载文件
 
-1. 下载 [Python](https://www.python.org/downloads/windows/) 并完成安装。
-2. 下载 GSManager：
-   - [国内下载源](http://langlangy.server.xiaozhuhouses.asia:8082/disk1/GSM3/gsm3-management-panel-windows.zip)
-   - [GitHub](https://github.com/GSManagerXZ/GameServerManager/releases/latest)
+下载 GSManager：
+  - [国内下载源](http://langlangy.server.xiaozhuhouses.asia:8082/disk1/GSM3/gsm3-management-panel-windows.zip)
+  - [GitHub](https://github.com/GSManagerXZ/GameServerManager/releases/latest)
 
 ## 📤 二、上传与解压文件
 
 1. 安装 Python 时，务必勾选如下两个选项：
    ![](http://langlangy.server.xiaozhuhouses.asia:40061/i/2025/07/20/u17lk0.png)
 2. 解压 GSManager 面板压缩包至任意目录。
-
-## 🛠️ 三、安装 Python 依赖库
-
-1. 双击面板目录下的 `install-python-deps.bat` 文件，自动安装所需依赖。
-2. 安装完成后，双击 `start.bat` 启动面板。
-
-::: warning 注意
-如遇依赖安装失败，请检查 Python 是否正确添加到环境变量。
-:::
 
 ## 🌐 访问面板
 
