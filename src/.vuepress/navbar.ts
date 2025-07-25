@@ -24,4 +24,9 @@ export default navbar([
     prefix: "/游戏百科/",
     children: ["Steam/"]
   },
+  {
+    text: "开发文档",
+    icon: "fa-wrench",
+    link: "/开发文档/",
+  },
 ]);
