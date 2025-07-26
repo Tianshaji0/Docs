@@ -17,7 +17,7 @@ order: 2
 ## 📤 二、上传与解压文件
 
 1. 安装 Python 时，务必勾选如下两个选项：
-   ![](http://langlangy.server.xiaozhuhouses.asia:40061/i/2025/07/20/u17lk0.png)
+   ![](https://images.server.xiaozhuhouses.asia:3000/i/2025/07/20/u17lk0.png)
 2. 解压 GSManager 面板压缩包至任意目录。
 
 ## 🌐 访问面板
@@ -38,7 +38,7 @@ Windows 默认开启防火墙，需要进行以下配置：
 2. 允许面板程序通过防火墙
 3. 或临时关闭防火墙（不推荐）
 
-![Windows防火墙设置](http://langlangy.server.xiaozhuhouses.asia:40061/i/2025/07/20/u6apvm.png)
+![Windows防火墙设置](https://images.server.xiaozhuhouses.asia:3000/i/2025/07/20/u6apvm.png)
 :::
 
 ::: tip 特殊环境配置
