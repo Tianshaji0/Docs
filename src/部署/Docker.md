@@ -16,8 +16,6 @@ GSManager3中采用的仍然是游戏容器，拥有绝大部分的游戏运行�
     ```bash
     docker pull xiaozhu674/gameservermanager:latest
     ```
-2. 离线下载
-   可前往 [Github Release](https://github.com/GSManagerXZ/GameServerManager/releases) 获取离线包
 
 ## 创建 docker-compose.yml
 准备一个目录，在该目录下创建文件 `docker-compose.yml`
@@ -90,6 +88,10 @@ docker compose up -d
 
 ## 常见问题
 
+::: details 无法拉取镜像
+若您使用设备在中国大陆，dockerhub默认仓库受网络封锁属于正常情况，目前观察到1panel镜像源将本项目进行了缓存，实测可以以较快速度拉取，[了解详情](https://1panel.cn/docs/v2/user_manual/containers/setting/#1)
+:::
+
 ::: details 存档存储在哪里？
 为了提升兼容性确保文件能够准确写入到宿主机中，从 3.4.0 开始容器采用了数据卷的存储方式，这种存储方式是最稳妥且是 docker 中推荐做法，彻底告别权限带来的文件写入问题。数据卷默认在宿主机 `/var/lib/docker/volumes` 目录下以 `容器名+存储卷名` 为文件夹进行存放，GSManager 容器中的数据卷名称为：
 - `gameservermanager_gsm3_data`——面板数据目录
@@ -100,6 +102,10 @@ docker compose up -d
 ::: details 旧版本如何迁移存档到数据卷？
 - 将原来 `game_data` 服务端文件复制到 `/var/lib/docker/volumes/gameservermanager_game_file/_data` 目录下创建游戏文件夹将服务端文件放入进去即可，容器中面板路径保持不变。无需设置权限。
 - 将原来 `game_file` 存档文件复制到 `/var/lib/docker/volumes/gameservermanager_game_data/_data` 目录下创建游戏文件夹将服务端文件放入进去即可，容器中面板路径保持不变。无需设置权限。
+:::
+
+::: details 我想改为传统路径映射方式
+完全可以，但是需要注意是需要将游戏映射的宿主路径的文件夹设置为777权限，否则游戏将无法写入到宿主路径且会造成存档丢失风险
 :::
 
 ::: details 无法连接到游戏服务端或不想映射端口
