@@ -1,0 +1,107 @@
+name: PR 语法检查
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  syntax-check:
+    name: 语法检查
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 初始评论 - 正在进行构建检查
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo, number } = context.issue;
+
+            // 获取 PR 变更的文件列表
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner, repo, pull_number: number, per_page: 100
+            });
+
+            const fileList = files.map(f => `- \`${f.filename}\` (${f.status})`).join('\n');
+            const fileCount = files.length;
+
+            await github.rest.issues.createComment({
+              owner, repo, issue_number: number,
+              body: `⚠ 本 PR 已进入自动化构建检查流程，正在进行检查，请稍后\n\n**本次变更文件 (${fileCount} 个):**\n${fileList}\n\n正在进行文档构建检查...`
+            });
+
+      - name: 检出 PR 提交代码
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: 设置 Node 版本
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 设置 pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.0.0
+
+      - name: 安装依赖
+        run: pnpm install --frozen-lockfile
+
+      - name: 构建文档
+        id: build_check
+        env:
+          NODE_OPTIONS: --max_old_space_size=8192
+        shell: bash
+        run: |
+          set +e
+          pnpm run docs:build 2>&1 | tee build_output.txt
+          rc=$?
+          if [ $rc -ne 0 ]; then echo "failed=true" >> $GITHUB_OUTPUT; else echo "failed=false" >> $GITHUB_OUTPUT; fi
+          exit 0
+
+      - name: 构建失败时回复 PR
+        if: ${{ steps.build_check.outputs.failed == 'true' }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo, number } = context.issue;
+            const fs = require('fs');
+
+            let errorDetails = '';
+
+            // 读取构建错误信息
+            try {
+              const errors = fs.readFileSync('build_output.txt', 'utf8');
+              if (errors.trim()) {
+                errorDetails = '**构建输出:**\n```\n' + errors.trim() + '\n```\n\n';
+              }
+            } catch (e) {
+              errorDetails = '**文档构建失败**（无法读取详细错误信息）\n\n';
+            }
+
+            await github.rest.issues.createComment({
+              owner, repo, issue_number: number,
+              body: `❌ 文档构建未通过。命令：\`pnpm run docs:build\`\n\n${errorDetails}请根据上述错误信息修复问题后再次提交，系统会重新检查～`
+            });
+
+      - name: 语法检查通过时回复 PR
+        if: ${{ steps.build_check.outputs.failed != 'true' }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo, number } = context.issue;
+            await github.rest.issues.createComment({
+              owner, repo, issue_number: number,
+              body: '✅ 语法检查通过，请等待项目维护者最终审核'
+            });
+

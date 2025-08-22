@@ -22,7 +22,7 @@ export default navbar([
     text: "游戏百科",
     icon: "fa-gamepad",
     prefix: "/游戏百科/",
-    children: ["Steam/","我的世界/"]
+    children: ["Steam/","我的世界/","游戏参数/"]
   },
   {
     text: "开发文档",
