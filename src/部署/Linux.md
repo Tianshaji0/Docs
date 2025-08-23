@@ -8,7 +8,14 @@ order: 3
 建议优先选择 Ubuntu 22，兼容性最佳。
 :::
 
-## 🧰 一、安装后台管理工具
+## 一键安装脚本(推荐)
+
+```bash
+curl -Lo install-gsm3.sh http://download.server.xiaozhuhouses.asia:8082/disk1/GSM3/install-gsm3.sh && sudo bash install-gsm3.sh
+```
+
+## 手动安装
+### 🧰 一、安装后台管理工具
 
 推荐使用 `screen`，方便面板后台运行。
 
@@ -21,18 +28,18 @@ order: 3
   apt install screen -y
   ```
 
-## 📦 二、下载与解压面板文件
+### 📦 二、下载与解压面板文件
 
 1. 下载面板压缩包：
    ```bash
-   wget https://github.com/GSManagerXZ/GameServerManager/releases/latest/download/gsm-management-panel-linux.tar.gz
+   wget https://github.com/GSManagerXZ/GameServerManager/releases/latest/download/gsm3-management-panel-linux.tar.gz
    ```
 2. 解压文件：
    ```bash
-   tar -zxvf gsm-management-panel-linux.tar.gz
+   tar -zxvf gsm3-management-panel-linux.tar.gz
    ```
 
-## ⚙️ 三、运行面板
+### ⚙️ 三、运行面板
 
 1. 启动 screen 后台服务（如未创建可省略）：
    ```bash
