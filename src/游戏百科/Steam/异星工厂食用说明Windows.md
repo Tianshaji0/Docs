@@ -16,6 +16,12 @@ author: Tianshaji
 **请仔细阅读本文档并按照说明操作**  
 **请严格按照教程进行，否则不一定能启动服务器**
 
+## 视频教程
+
+
+# [视频教程点此跳转](https://www.bilibili.com/video/BV1jPe7zVEp2/?vd_source=0ec23c0699e56fe797fe533d876b8df5)
+
+
 ## 服务器下载
 
 服务器即是游戏本体
@@ -161,10 +167,10 @@ pause
 ```
 ```js
 代码注释
-  \bin\x64\factorio.exe                               <!-- 相对路径，不要随便动 -->
-  --start-server Factorio.zip                         <!-- 启动Factorio.zip存档 -->
+  \bin\x64\factorio.exe                                       <!-- 相对路径，不要随便动 -->
+  --start-server Factorio.zip                                 <!-- 启动Factorio.zip存档 -->
   --server-settings .\data\server-settings.example.json       <!-- 启用server-settings.example.json服务器配置文件 -->
-  --port 34197                                        <!-- 游戏端口 -->
+  --port 34197                                                <!-- 游戏端口 -->
 ```
 PS：更多启动参数请到Factorio官方网站查询
 
@@ -197,6 +203,7 @@ PS：控制台有显示"公网:端口"的字样说明启动完整
    工作目录：游戏本体路径
 
    启动命令: ```.\Factorio.bat```
+
 
 
 
