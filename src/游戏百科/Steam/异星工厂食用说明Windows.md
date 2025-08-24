@@ -156,14 +156,14 @@ PS: 如果想继续玩之前的存档请把存档命名为 Factorio
 打开编辑
 
 ```js
-start /wait .\bin\x64\factorio.exe --start-server Factorio.zip --server-settings .\data\server-settings.example --port 34197
+start /wait .\bin\x64\factorio.exe --start-server Factorio.zip --server-settings .\data\server-settings.example.json --port 34197
 pause
 ```
 ```js
 代码注释
   \bin\x64\factorio.exe                               <!-- 相对路径，不要随便动 -->
   --start-server Factorio.zip                         <!-- 启动Factorio.zip存档 -->
-  --server-settings .\data\server-settings.example       <!-- 启用server-settings.example服务器配置文件 -->
+  --server-settings .\data\server-settings.example.json       <!-- 启用server-settings.example.json服务器配置文件 -->
   --port 34197                                        <!-- 游戏端口 -->
 ```
 PS：更多启动参数请到Factorio官方网站查询
@@ -197,5 +197,6 @@ PS：控制台有显示"公网:端口"的字样说明启动完整
    工作目录：游戏本体路径
 
    启动命令: ```.\Factorio.bat```
+
 
 
