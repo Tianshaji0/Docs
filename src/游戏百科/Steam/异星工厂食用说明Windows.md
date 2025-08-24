@@ -12,42 +12,38 @@ author: Tianshaji
 
 # 异星工厂开服教程
 
-<p> <strong>请好好阅读并遵循
-<p> 请仔细阅读本文档并按照说明操作
-<p> 请严格按照教程进行，否则不一定能启动服务器</strong>
+**请好好阅读并遵循**  
+**请仔细阅读本文档并按照说明操作**  
+**请严格按照教程进行，否则不一定能启动服务器**
 
-  
-## <br>服务器下载
+## 服务器下载
 
-<br>服务器即是游戏本体
+服务器即是游戏本体
 
-## <br>游戏存档
-存档位置：C:\Users\你的用户名\AppData\Roaming\Factorio
+## 游戏存档
+存档位置：`C:\Users\你的用户名\AppData\Roaming\Factorio`
 
-<p>saves：存档文件夹 请先打开游戏保存生成一个存档，存档命名为 Factorio
-<p> mods：模组文件夹 请把所有模组放在此文件夹
+`saves`：存档文件夹 请先打开游戏保存生成一个存档，存档命名为 Factorio  
+`mods`：模组文件夹 请把所有模组放在此文件夹
 
+建议：  
+1. 先把要用的模组先下载好  
+2. 把要用的模组启用  
+3. 把你需要的难度设置调整好  
+4. 把地图挑选好  
+5. 进游戏后保存  
+6. 把存档命名为 Factorio  
+PS: 如果想继续玩之前的存档请把存档命名为 Factorio
 
-<br>建议：
-<p>1.先把要用的模组先下载好
-<p>2.把要用的模组启用
-<p>3.把你需要的难度设置调整好
-<p>4.把地图挑选好
-<p>5.进游戏后保存
-<p>6.把存档命名为 Factorio
-<p>PS:如果想继续玩之前的存档请把存档命名为 Factorio
+**！！！！注意！！！！**  
+**在服务器部署的情况下请把以上的做好**  
+**把整个`C:\Users\你的用户名\AppData\Roaming\Factorio`**  
+**放在服务器的相同位置**
 
+## 配置服务器文件
+文件位置：`游戏本体\data\server-settings.json`
 
-<br><strong>！！！！注意！！！！
-<p>在服务器部署的情况下请把以上的做好
-<p>把整个C:\Users\你的用户名\AppData\Roaming\Factorio
-<p>放在服务器的相同位置</strong>
-
-
-## <br>配置服务器文件
-文件位置：游戏本体\data\server-settings.json
-代码注释
-```
+```js
 {
   <!--服务器名称（显示在服务器列表）-->
   "name": "Factorio",
@@ -149,21 +145,23 @@ author: Tianshaji
   "_comment_segment_sizes": "Long network messages are split into segments that are sent over multiple ticks. Their size depends on the number of peers currently connected. Increasing the segment size will increase upload bandwidth requirement for the server and download bandwidth requirement for clients. This setting only affects server outbound messages. Changing these settings can have a negative impact on connection stability for some clients.",
   "minimum_segment_size": 25,                  <!-- 低负载时最小分段大小 -->
   "minimum_segment_size_peer_count": 20,       <!-- 触发最小分段的玩家数量 -->
-  "maximum_segment_size": 100,                 <!-- 高负载时最大分段大小 -->
-  "maximum_segment_size_peer_count": 10        <!-- 触发最大分段的玩家数量 -->
+  "maximum_segment_size": 100,                 <!--高负载时最大分段大小 -->
+  "maximum_segment_size_peer_count": 10        <!--触发最大分段的玩家数量-->
 }
 ```
-## <br>启动服务器
+
+## 启动服务器
 
 在游戏目录下创建一个批处理文件Factorio.bat
 打开编辑
-```
+
+```js
 start 
   /wait .\bin\x64\factorio.exe --start-server Factorio.zip --server-settings .\data\server-settings.json --port 34197
 pause
 ```
+```js
 代码注释
-```
   \bin\x64\factorio.exe                               <!-- 相对路径，不要随便动 -->
   --start-server Factorio.zip                         <!-- 启动Factorio.zip存档 -->
   --server-settings .\data\server-settings.json       <!-- 启用settings.json服务器配置文件 -->
@@ -173,32 +171,30 @@ PS：更多启动参数请到Factorio官方网站查询
 
 PS：控制台有显示"公网:端口"的字样说明启动完整
 
-## <br>端口放开
+## 端口放开
 
 --port 34197 是多少就放开多少 
-<p>此代码34197就放开34197 TCP+UDP
 
-## <br>连接服务器
+此代码34197就放开34197 TCP+UDP
 
-<p>打开游戏
-<p>多人游戏
-<p>直接连接
-<p>填写：公网IP：端口
+## 连接服务器
 
-互联网列表公开服务器需要购买正版后 Factorio 官网账号密码
-<p>在服务器配置文件填写
+1. 打开游戏
+2. 多人游戏
+3. 直接连接
+4. 填写：公网IP：端口
 
-# <br>以下请建立在服务器能正常启动游戏能正常连接游玩的情况下进行
-## <br>面板启动
+互联网列表公开服务器需要购买正版后 Factorio 官网账号密码，在服务器配置文件填写
 
-<p>1.登陆GSManager
-<p>2.点击实例管理
-<p>3.创建实例
-<p>实例名称：<code>Factorio</code>
-<p>工作目录：游戏本体路径
-<p>启动命令: <code>.\Factorio.bat</code>
+## 以下请建立在服务器能正常启动游戏能正常连接游玩的情况下进行
+## 面板启动
 
+1. 登陆GSManager
+2. 点击实例管理
+3. 创建实例
 
+   实例名称：```Factorio```
 
+   工作目录：游戏本体路径
 
-
+   启动命令: ```.\Factorio.bat```
