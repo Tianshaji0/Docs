@@ -24,8 +24,8 @@ author: Tianshaji
 ## 游戏存档
 存档位置：C:\Users\你的用户名\AppData\Roaming\Factorio
 
-saves：存档文件夹 请先打开游戏保存生成一个存档，存档命名为 Factorio
- mods：模组文件夹 请把所有模组放在此文件夹
+<p>saves：存档文件夹 请先打开游戏保存生成一个存档，存档命名为 Factorio
+<p> mods：模组文件夹 请把所有模组放在此文件夹
 
 建议：
 <p>1.先把要用的模组先下载好
@@ -194,3 +194,4 @@ PS：控制台有显示"公网:端口"的字样说明启动完整
 <p>实例名称：<code>Factorio</code>
 <p>工作目录：游戏本体路径
 <p>启动命令: <code>.\Factorio.bat</code>
+
