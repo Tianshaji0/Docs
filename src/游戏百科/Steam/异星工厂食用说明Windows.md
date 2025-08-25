@@ -1,7 +1,7 @@
 ---
 title: 异星工厂Windows开服教程
 icon: gamepad
-order: 2
+order: 21
 category:
   - 游戏指南
 tag:
@@ -203,6 +203,7 @@ PS：控制台有显示"公网:端口"的字样说明启动完整
    工作目录：游戏本体路径
 
    启动命令: ```.\Factorio.bat```
+
 
 
 
